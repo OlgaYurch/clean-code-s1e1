@@ -42,7 +42,6 @@ var createNewTaskElement = function(taskString) {
 }
 
 var addTask = function() {
-  console.log("Add Task...");
 
   if (!taskInput.value) return;
   var listItem = createNewTaskElement(taskInput.value);
@@ -55,8 +54,6 @@ var addTask = function() {
 
 //Edit an existing task.
 var editTask = function() {
-  console.log("Edit Task...");
-  console.log("Change 'edit' to 'save'");
 
   var listItem = this.parentNode;
 
@@ -77,7 +74,6 @@ var editTask = function() {
 
 //Delete task.
 var deleteTask = function() {
-  console.log("Delete Task...");
 
   var listItem = this.parentNode;
   var ul = listItem.parentNode;
@@ -87,33 +83,27 @@ var deleteTask = function() {
 
 //Mark task completed
 var taskCompleted = function() {
-  console.log("Complete Task...");
 
   var listItem = this.parentNode;
+
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 }
 
 var taskIncomplete = function() {
-  console.log("Incomplete Task...");
 
   var listItem = this.parentNode;
+
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
-}
-
-var ajaxRequest = function() {
-  console.log("AJAX Request");
 }
 
 //Set the click handler to the addTask function.
 addButton.onclick = addTask;
 addButton.addEventListener("click", addTask);
-addButton.addEventListener("click", ajaxRequest);
 
 
 var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
-  console.log("bind list item events");
 
   var checkBox = taskListItem.querySelector(".section__input_checkbox");
   var editButton = taskListItem.querySelector(".section__button_edit");
